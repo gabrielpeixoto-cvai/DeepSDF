@@ -254,7 +254,7 @@ def main_function(experiment_directory, continue_from, batch_split):
 
     specs = ws.load_experiment_specifications(experiment_directory)
 
-    logging.info("Experiment description: \n" + specs["Description"])
+    logging.info(f"Experiment description: \n{specs['Description']}")
 
     data_source = specs["DataSource"]
     train_split_file = specs["TrainSplit"]
@@ -462,7 +462,7 @@ def main_function(experiment_directory, continue_from, batch_split):
         for sdf_data, indices in sdf_loader:
 
             # Process the input data
-            sdf_data = sdf_data.reshape(-1, 4)
+            sdf_data = sdf_data.reshape(-1, 4).float()
 
             num_sdf_samples = sdf_data.shape[0]
 

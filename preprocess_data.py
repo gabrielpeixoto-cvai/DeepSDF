@@ -211,6 +211,7 @@ if __name__ == "__main__":
         for instance_dir in instance_dirs:
 
             shape_dir = os.path.join(class_path, instance_dir)
+            print(shape_dir)
 
             processed_filepath = os.path.join(target_dir, instance_dir + extension)
             if args.skip and os.path.isfile(processed_filepath):
@@ -219,7 +220,7 @@ if __name__ == "__main__":
 
             try:
                 mesh_filename = deep_sdf.data.find_mesh_in_directory(shape_dir)
-
+                print(shape_dir)
                 specific_args = []
 
                 if args.surface_sampling:

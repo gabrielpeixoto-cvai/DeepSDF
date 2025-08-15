@@ -1,5 +1,13 @@
 # DeepSDF
 
+## This Fork Specific Additions
+
+* Docker environment: you can build a docker environment to run original code, no need for conda.
+  * I had issues creating the SDF dataset with original CPP code;
+* create new files: process_mesh.py an sample_surface.py that replace SDF generation and surface point sampling for training and test in CPP by python methods.
+  * Results show a low chamfer distance (less than 0.01 for most instances) so CPP is not necessary anymore.
+
+
 This is an implementation of the CVPR '19 paper "DeepSDF: Learning Continuous Signed Distance Functions for Shape Representation" by Park et al. See the paper [here][6]. 
 
 [![DeepSDF Video](https://img.youtube.com/vi/LILRJzMQw5o/0.jpg)](https://www.youtube.com/watch?v=LILRJzMQw5o)
