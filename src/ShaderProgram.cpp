@@ -2,7 +2,7 @@
 
 #include <pangolin/gl/glsl.h>
 
-constexpr const char* shaderText = R"Shader(
+constexpr const char *shaderText = R"Shader(
 @start vertex
 #version 330 core
 
@@ -94,7 +94,6 @@ in vec3 normal_world;
 in vec3 normal_camera;
 in vec4 xyz_world;
 in vec4 xyz_camera;
-in int gl_PrimitiveID ;
 
 uniform vec2 slant_thr;
 varying vec4 ttt;
