@@ -52,8 +52,8 @@ def reconstruct(
         sdf_data = deep_sdf.data.unpack_sdf_samples_from_ram(
             test_sdf, num_samples
         ).cuda()
-        xyz = sdf_data[:, 0:3]
-        sdf_gt = sdf_data[:, 3].unsqueeze(1)
+        xyz = sdf_data[:, 0:3].float()
+        sdf_gt = sdf_data[:, 3].unsqueeze(1).float()
 
         sdf_gt = torch.clamp(sdf_gt, -clamp_dist, clamp_dist)
 
@@ -277,7 +277,7 @@ if __name__ == "__main__":
                 start = time.time()
                 with torch.no_grad():
                     deep_sdf.mesh.create_mesh(
-                        decoder, latent, mesh_filename, N=256, max_batch=int(2 ** 18)
+                        decoder, latent, mesh_filename, N=256, max_batch=int(2**18)
                     )
                 logging.debug("total time: {}".format(time.time() - start))
 
